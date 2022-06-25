@@ -22,42 +22,62 @@ public class NodeTraversing {
         }
     }
  
-    static void preorder(TreeNode TreeNode) {
-        if (TreeNode == null)
+    /**
+     * In pre-order traversal of a binary tree, we first traverse the root, then the left subtree and then finally the right subtree. 
+     * 
+     * @param treeNode
+     */
+    static void preorder(TreeNode treeNode) {
+        if (treeNode == null)
             return;
  
         // Traverse root DFS (Depth First Search)
-        System.out.print(TreeNode.data + " ");
+        System.out.print(treeNode.data + " ");
         // Traverse left
-        preorder(TreeNode.left);
+        preorder(treeNode.left);
         // Traverse right
-        preorder(TreeNode.right);
+        preorder(treeNode.right);
     }
  
-    static void inorder(TreeNode TreeNode) {
-        if (TreeNode == null)
+    /**
+     * In-order traversal of a binary tree first traverses the left subtree then the root and finally the right subtree. 
+     * 
+     * @param treeNode
+     */
+    static void inorder(TreeNode treeNode) {
+        if (treeNode == null)
             return;
  
         // Traverse left DFS (Depth First Search)
-        inorder(TreeNode.left);
+        inorder(treeNode.left);
         // Traverse root
-        System.out.print(TreeNode.data + " ");
+        System.out.print(treeNode.data + " ");
         // Traverse right
-        inorder(TreeNode.right);
+        inorder(treeNode.right);
     }
- 
-    static void postorder(TreeNode TreeNode) {
-        if (TreeNode == null)
+
+    /**
+     * Post-order traversal of a binary tree first traverses the left subtree then the right subtree and then finally the root. 
+     * 
+     * @param treeNode
+     */
+    static void postorder(TreeNode treeNode) {
+        if (treeNode == null)
             return;
  
         // Traverse left DFS (Depth First Search)
-        postorder(TreeNode.left);
+        postorder(treeNode.left);
         // Traverse right
-        postorder(TreeNode.right);
+        postorder(treeNode.right);
         // Traverse root
-        System.out.print(TreeNode.data + " ");
+        System.out.print(treeNode.data + " ");
     }
-    
+ 
+    /**
+     * Level order traversal uses a queue to keep track of nodes to visit. After visiting a node, 
+     * its children are put in the queue. To get a new node to traverse, we take out elements from the queue 
+     * @param treeNode
+     */
    //BFS (Breadth-First Search )
    static void printLevelOrder(TreeNode root) {
        Queue<TreeNode> queue = new LinkedList<TreeNode>();

@@ -9,7 +9,7 @@ package hackerrank.advanced;
  */
 public class ReverseStringOrPalindrom {
     public static void main(String[] args) {
-        String str = "Hello my name is Arbind";
+        String str = "aabbbbaa";
         String result = printReverseString(str);
         System.out.println("Reverse string: "+result);
         
@@ -23,11 +23,12 @@ public class ReverseStringOrPalindrom {
     
     private static String printReverseString(String str) {
 	if (str==null || str.isEmpty()) {
-	    //System.out.println(str);
+	    System.out.println(str);
 	    return str;
 	} else {
-        	//System.out.print(str.charAt(str.length() - 1));
-        	return  str.charAt(str.length() - 1) + printReverseString(str.substring(0, str.length() - 1));
+	    char c = str.charAt(str.length() - 1); 
+	   // System.out.print(c);
+        return   c + printReverseString(str.substring(0, str.length() - 1));
 	}
     }
 }

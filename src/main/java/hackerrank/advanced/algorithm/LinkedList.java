@@ -71,6 +71,31 @@ public class LinkedList {
             currNode = currNode.next; 
         } 
     } 
+
+    public static void deleteNode(LinkedList list, int key) {
+	// Store head node
+        Node temp = list.head, prev = null;
+ 
+        // If head node itself holds the key to be deleted
+        if (temp != null && temp.data == key) {
+            list.head = temp.next; // Changed head
+            return;
+        }
+ 
+        // Search for the key to be deleted, keep track of
+        // the previous node as we need to change temp.next
+        while (temp != null && temp.data != key) {
+            prev = temp;
+            temp = temp.next;
+        }
+ 
+        // If key was not present in linked list
+        if (temp == null)
+            return;
+ 
+        // Unlink the node from linked list
+        prev.next = temp.next;
+    }
     
     /**
      * @param args
@@ -95,7 +120,11 @@ public class LinkedList {
   
         // Print the LinkedList 
         printList(list);
-
+        
+        deleteNode(list, 5);
+        
+        System.out.println("\n\n After deleteing the node from the Linked list:");
+        printList(list);
     }
 
 }
