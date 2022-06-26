@@ -3,14 +3,23 @@
  */
 package hackerrank.advanced.algorithm;
 
-import hackerrank.advanced.algorithm.Binary_Tree_Count_Sum_Of_Nodes.Node;
-
 /**
  * @author Arbind Negi 23-Jun-2022
  *
  */
 public class BinaryTree_Diameter {
 
+    static class Node {
+
+	int data;
+	Node left, right;
+
+	Node(int d) {
+	    data = d;
+	    left = right = null;
+	}
+    }
+    
     static class TreeInfo {
 	int hight;
 	int diameter;

@@ -14,7 +14,6 @@ public class MaxHeap {
     private int maxSize;
     
     
-    
     /**
      * @param heap
      * @param size
@@ -151,7 +150,9 @@ public class MaxHeap {
     / \    /     
    /   \  10   
   3     9  
- 
+
+Time complexcity is O(Log n)
+Note: For the case of MIN HEAP, it will be just the reverse of Max Heap
 **/   
 	MaxHeap maxHeap = new MaxHeap(15);
 

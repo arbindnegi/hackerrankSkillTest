@@ -35,11 +35,20 @@ public class IdenticalBinaryTreesCheck {
    	binaryTree2.left.right = new TreeNode(25);
    	binaryTree2.right.right = new TreeNode(300);
    	
+   	
    	if(isIdenticalBinaryTree(binaryTree1, binaryTree2)) {
    	    System.out.println("Both the tree are same");
    	}
    	else {
    	 System.out.println("Both the tree are different");
+   	}
+   	 System.out.println("--------------------------");
+   	 
+   	if(isSubTree(binaryTree1, binaryTree2)) {
+   	    System.out.println("Yes, Its SubTree of main Binarry Tree");
+   	}
+   	else {
+   	 System.out.println("No, Its not a subTree");
    	}
        }
     
@@ -57,5 +66,22 @@ public class IdenticalBinaryTreesCheck {
 	}
 
 	return false;
+    }
+    
+    private static boolean isSubTree(TreeNode tree, TreeNode subtree) {
+	if(subtree == null)
+	    return true;
+	
+	if(tree == null) 
+	    return false;
+	
+	if(tree.data == subtree.data) {
+	    if(isIdenticalBinaryTree(tree, subtree)) {
+		return true;
+		
+	    }
+	}
+	
+	return isSubTree(tree.left, subtree) || isSubTree(tree.right, subtree);
     }
 }
