@@ -15,8 +15,22 @@ public class EmployeeDemo {
 		employeeData = employeeData.stream().sorted(Comparator.comparing(Employee::getName).thenComparing(Employee::getDepartment)).distinct().collect(Collectors.toList());
 		System.out.println("Size:" + employeeData.size());
 		System.out.println("Sorted:" + employeeData);
+		
+		employeeData.stream().forEach(e -> {
+		    if(e.getAge() > 40) {
+			System.out.println(e.getName() + "  Retirement will be on 31 Dec 2022 from department " + e.getDepartment());
+		    }  
+		});
+		
+		List<String> empnames = employeeData
+			.stream()
+			.filter(age -> age.getAge() > 30)
+			.map(e -> e.getName())
+			.collect(Collectors.toList());
+		System.out.println(empnames);
 
 	}
+	
 	
 	static List<Employee> getEmployeeData(){
 		List<Employee> empList = new ArrayList<>();
